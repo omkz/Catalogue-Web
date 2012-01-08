@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="kategori/list" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/kategori/list.jsp" />
+	</definition>
+        
+        <definition name="kategori/error" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/kategori/error.jsp" />
+	</definition>
+
+        <definition name="kategori/new" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/kategori/new.jsp" />
+	</definition>
+
+        <definition name="kategori/show" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/kategori/show.jsp" />
+	</definition>
+
+        <definition name="kategori/update" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/kategori/update.jsp" />
+	</definition>
+
+</tiles-definitions>

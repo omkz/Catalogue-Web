@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:p="http://www.springframework.org/schema/p"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    
+    <context:component-scan base-package="org.omenk.controller"/>
+
+    <annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+    <resources mapping="/resources/**" location="/WEB-INF/resources/" />
+
+    <resources mapping="/upload/**" location="file:/home/ndh/Gambar/cover/"/>
+
+    <view-controller path="/" view-name="index"/>
+
+    <beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource"
+                p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application" p:fallbackToSystemLocale="false"/>
+
+    <beans:bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver" id="localeResolver"
+                p:cookieName="locale"/>
+
+    <beans:bean class="org.springframework.ui.context.support.ResourceBundleThemeSource" id="themeSource"/>
+
+   <!-- Views mapped in views.properties (PDF, XLS classes, and others) -->
+    <beans:bean id="contentNegotiatingResolver"
+              class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <beans:property name="order"
+                  value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}" />
+        <beans:property name="mediaTypes">
+            <beans:map>
+                <beans:entry key="html" value="text/html"/>
+                <beans:entry key="pdf" value="application/pdf"/>
+                <beans:entry key="xsl" value="application/vnd.ms-excel"/>
+                <beans:entry key="xml" value="application/xml"/>
+                <beans:entry key="json" value="application/json"/>
+            </beans:map>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="urlBasedResolver"
+    class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+
+        <beans:property name="order" value="#{contentNegotiatingResolver.order+1}" />
+
+    </beans:bean>
+
+    <beans:bean id="internalResourceResolver"
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jsp" />
+        <beans:property name="order" value="#{urlBasedResolver.order+1}" />
+
+    </beans:bean>
+
+    <beans:bean id="resourceBundleResolver"
+        class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <beans:property name="basename" value="views" />
+        <beans:property name="order" value="#{internalResourceResolver.order+1}" />
+    </beans:bean>
+
+
+    <!-- Initializes the Apache Tiles CompositeView system -->
+    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+
+        <beans:property name="definitions">
+            <beans:value>
+				/WEB-INF/**/tiles.xml
+            </beans:value>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<!-- one of the properties available; the maximum file size in bytes -->
+        <beans:property name="maxUploadSize" value="100000"/>
+    </beans:bean>
+</beans:beans>

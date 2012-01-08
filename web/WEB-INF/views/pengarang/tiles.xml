@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="pengarang/list" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pengarang/list.jsp" />
+	</definition>
+
+        <definition name="pengarang/new" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pengarang/new.jsp" />
+	</definition>
+
+        <definition name="pengarang/show" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pengarang/show.jsp" />
+	</definition>
+
+        <definition name="pengarang/update" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pengarang/update.jsp" />
+	</definition>
+
+</tiles-definitions>

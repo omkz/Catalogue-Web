@@ -1,0 +1,31 @@
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="search/list" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/search/list.jsp" />
+	</definition>
+        
+        <definition name="search/jarangCari" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/search/jarangCari.jsp" />
+	</definition>
+
+        <definition name="search/detail" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/search/detail.jsp" />
+	</definition>
+
+        <definition name="search/search" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/search/search.jsp" />
+	</definition>
+
+        <definition name="search/jumlah" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/search/jumlah.jsp" />
+	</definition>
+
+        
+
+        
+
+</tiles-definitions>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="buku/list" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/buku/list.jsp" />
+	</definition>
+
+        <definition name="buku/new" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/buku/new.jsp" />
+	</definition>
+
+        <definition name="buku/show" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/buku/show.jsp" />
+	</definition>
+
+        <definition name="buku/update" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/buku/update.jsp" />
+	</definition>
+
+</tiles-definitions>
