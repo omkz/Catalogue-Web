@@ -1,5 +1,15 @@
 Opensource Web Application for book catalogue. based on spring mvc and hibernate/jpa.
 you need catalogue-core https://github.com/omenkzz/Catalogue-Core for core application.
 
+Development stack :
+- spring mvc
+- spring security
+- hibernate/jpa
+- apache tiles
+- jsp
+- jquery
+- apache ant (will be migrate to maven)
+
+
 installation :
 -
